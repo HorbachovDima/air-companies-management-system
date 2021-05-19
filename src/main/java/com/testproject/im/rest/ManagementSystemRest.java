@@ -61,7 +61,7 @@ public class ManagementSystemRest {
         return  managementSystemService.findAllFlightInActiveStatusAndStartedMoreThan24HoursAgo();
     }
 
-    @PostMapping({"/airplanes", "/airplanes/{airCompanyId}"})
+    @PostMapping("/airplanes/{airCompanyId}")
     public void saveAirplane(@PathVariable(required = false) int airCompanyId, @RequestBody Airplane airplane) { // It is work
         managementSystemService.saveAirplane(airCompanyId, airplane);
     }
