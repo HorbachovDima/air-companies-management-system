@@ -9,8 +9,8 @@ create table air_company
         unique (name)
 );
 
-INSERT INTO air_company (id, name, company_type, founded_at) VALUES (1, 'Emirates Airline', 'Air Company', 1985);
-INSERT INTO air_company (id, name, company_type, founded_at) VALUES (2, 'Qatar Airways', 'Air Company', 1993);
-INSERT INTO air_company (id, name, company_type, founded_at) VALUES (3, 'Saudia', 'Air Company', 1945);
-INSERT INTO air_company (id, name, company_type, founded_at) VALUES (4, 'SkyUp', 'Air Company', 2017);
-INSERT INTO air_company (id, name, company_type, founded_at) VALUES (5, 'Bravo Airways2', 'Air Company', 2012);
+INSERT INTO air_companies_management_system.air_company (id, name, company_type, founded_at) VALUES (1, 'Emirates Airline', 'Air Company', 1985);
+INSERT INTO air_companies_management_system.air_company (id, name, company_type, founded_at) VALUES (2, 'Qatar Airways', 'Air Company', 1993);
+INSERT INTO air_companies_management_system.air_company (id, name, company_type, founded_at) VALUES (3, 'Saudia', 'Air Company', 1945);
+INSERT INTO air_companies_management_system.air_company (id, name, company_type, founded_at) VALUES (4, 'SkyUp', 'Air Company', 2017);
+INSERT INTO air_companies_management_system.air_company (id, name, company_type, founded_at) VALUES (5, 'Bravo Airways2', 'Air Company', 2012);

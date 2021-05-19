@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -66,7 +67,10 @@ public class ManagementSystemService {
     }
 
     public List<Flight> findAllFlightInActiveStatusAndStartedMoreThan24HoursAgo() {
-        return flightDao.findAllFlightInActiveStatusAndStartedMoreThan24HoursAgo();
+        List<Flight> flights = flightDao.findAllFlightInActiveStatusAndStartedMoreThan24HoursAgo();
+        return flights.stream()
+                .filter(flight -> flight.getCreatedAt().isBefore(LocalDateTime.now().minus(24, ChronoUnit.HOURS)))
+                .collect(toList());
     }
 
     public void saveAirplane(int airCompanyId, Airplane airplane) {
