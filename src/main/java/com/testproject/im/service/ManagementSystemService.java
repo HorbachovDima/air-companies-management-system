@@ -67,7 +67,7 @@ public class ManagementSystemService {
     }
 
     public List<Flight> findAllFlightInActiveStatusAndStartedMoreThan24HoursAgo() {
-        List<Flight> flights = flightDao.findAllFlightInActiveStatusAndStartedMoreThan24HoursAgo();
+        List<Flight> flights = flightDao.findAllFlightInActiveStatus();
         return flights.stream()
                 .filter(flight -> flight.getCreatedAt().isBefore(LocalDateTime.now().minus(24, ChronoUnit.HOURS)))
                 .collect(toList());

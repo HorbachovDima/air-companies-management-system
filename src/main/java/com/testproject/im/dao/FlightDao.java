@@ -7,7 +7,7 @@ import java.util.List;
 public interface FlightDao {
     Flight findById(int id);
 
-    List<Flight> findAllFlightInActiveStatusAndStartedMoreThan24HoursAgo();
+    List<Flight> findAllFlightInActiveStatus();
 
     void saveWithPendingStatus(Flight flight);
 

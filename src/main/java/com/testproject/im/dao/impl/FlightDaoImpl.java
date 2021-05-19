@@ -24,7 +24,7 @@ public class FlightDaoImpl implements FlightDao {
     }
 
     @Override
-    public List<Flight> findAllFlightInActiveStatusAndStartedMoreThan24HoursAgo() {
+    public List<Flight> findAllFlightInActiveStatus() {
         String status = "ACTIVE";
         List<Flight> flights = entityManager.createQuery("select f from Flight f where f.flightStatus = :status", Flight.class)
                 .setParameter("status", status)
