@@ -85,7 +85,7 @@ public class ManagementSystemService {
     public void changeFlightStatus(int flightId, String newStatus) {
         Flight flight = flightDao.findById(flightId);
         if (newStatus.equals("ACTIVE")) {
-            flight.setCreatedAt(LocalTime.now());
+            flight.setCreatedAt(LocalDateTime.now());
         } else if (newStatus.equals("DELAYED")) {
             flight.setDelayStartedAt(LocalTime.now());
         } else if (newStatus.equals("COMPLETED")) {

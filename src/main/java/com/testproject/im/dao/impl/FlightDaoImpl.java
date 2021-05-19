@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,6 +45,9 @@ public class FlightDaoImpl implements FlightDao {
         List<Flight> flights = entityManager.createQuery("select f from Flight f where f.flightStatus = :status", Flight.class)
                 .setParameter("status", status)
                 .getResultList();
+        flights.stream()
+                .filter(flight -> flight.getCreatedAt().isBefore(LocalDateTime.now().minusDays(1)))
+                .collect(toList());
         return flights;
     }
 

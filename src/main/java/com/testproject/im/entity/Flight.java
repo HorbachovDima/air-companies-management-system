@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -43,24 +42,18 @@ public class Flight {
     private LocalTime delayStartedAt;
 
     @Column(name = "created_at")
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "air_company_id")
     @JsonBackReference
     private AirCompany airCompany;
-//
-//    @MapsId
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "airplane_id")
-//    private Airplane airplane;
-//
-//    public enum Status {
-//        ACTIVE,
-//        COMPLETED,
-//        DELAYED,
-//        PENDING
-//    }
+
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "airplane_id")
+    @JsonBackReference
+    private Airplane airplane;
 
     @Override
     public String toString() {

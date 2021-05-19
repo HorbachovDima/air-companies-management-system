@@ -1,6 +1,7 @@
 package com.testproject.im.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,11 +22,6 @@ public class Airplane {
     @Column(name = "factory_serial_number", nullable = false, unique = true)
     private int factorySerialNumber;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "air_company_id")
-    @JsonBackReference
-    private AirCompany airCompany;
-
     @Column(name = "number_of_flights")
     private int numberOfFlights;
 
@@ -40,6 +36,15 @@ public class Airplane {
 
     @Column(name = "created_at", nullable = false)
     private int createdAt;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "air_company_id")
+    @JsonBackReference
+    private AirCompany airCompany;
+
+    @OneToOne(mappedBy = "airplane")
+    @JsonManagedReference
+    private Flight flight;
 
     @Override
     public String toString() {
