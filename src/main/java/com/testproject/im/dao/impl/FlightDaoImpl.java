@@ -6,11 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @Repository
 public class FlightDaoImpl implements FlightDao {

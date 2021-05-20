@@ -98,14 +98,4 @@ public class ManagementSystemService {
         flight.setFlightStatus(newStatus);
         flightDao.save(flight);
     }
-
-//
-//    public void removeAirplane(int airCompanyId, int airplaneId) {
-//        Airplane airplane = airplaneDao.findById(airplaneId);
-//        if (airplane.getAirCompany() != null) {
-//            AirCompany airCompany = airCompanyDao.findById(airCompanyId);
-//            airCompany.removeAirplane(airplane);
-//        }
-//        airplaneDao.remove(airplaneId);
-//    }
 }

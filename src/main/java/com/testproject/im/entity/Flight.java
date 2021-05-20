@@ -49,10 +49,8 @@ public class Flight {
     @JsonBackReference
     private AirCompany airCompany;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "airplane_id")
-    @JsonBackReference
     private Airplane airplane;
 
     @Override

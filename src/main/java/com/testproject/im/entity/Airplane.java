@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -41,10 +43,6 @@ public class Airplane {
     @JoinColumn(name = "air_company_id")
     @JsonBackReference
     private AirCompany airCompany;
-
-    @OneToOne(mappedBy = "airplane")
-    @JsonManagedReference
-    private Flight flight;
 
     @Override
     public String toString() {

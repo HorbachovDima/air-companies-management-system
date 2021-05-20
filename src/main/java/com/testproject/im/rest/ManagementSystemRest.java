@@ -21,22 +21,22 @@ public class ManagementSystemRest {
     }
 
     @PostMapping("/companies")
-    public void saveAirCompany(@RequestBody AirCompany airCompany) { // It is work
+    public void saveAirCompany(@RequestBody AirCompany airCompany) {
         managementSystemService.saveAirCompany(airCompany);
     }
 
     @GetMapping("/companies/{id}")
-    public AirCompany findAirCompanyById(@PathVariable int id) { // It is work
+    public AirCompany findAirCompanyById(@PathVariable int id) {
         return managementSystemService.findAirCompanyById(id);
     }
 
     @GetMapping("/companies")
-    public List<AirCompany> findAllAirCompanies() { // It is work
+    public List<AirCompany> findAllAirCompanies() {
         return managementSystemService.findAllAirCompanies();
     }
 
     @PutMapping("/companies")
-    public AirCompany updateAirCompany(@RequestBody AirCompany airCompany) { // It is work
+    public AirCompany updateAirCompany(@RequestBody AirCompany airCompany) {
         managementSystemService.saveAirCompany(airCompany);
         return airCompany;
     }
@@ -47,12 +47,12 @@ public class ManagementSystemRest {
     }
 
     @PutMapping("/airplanes/{newAirplaneCompanyId}/{airplaneId}")
-    public void changeAirplaneCompany(@PathVariable int newAirplaneCompanyId, @PathVariable int airplaneId) { // It is work
+    public void changeAirplaneCompany(@PathVariable int newAirplaneCompanyId, @PathVariable int airplaneId) {
         managementSystemService.changeAirplaneCompany(newAirplaneCompanyId, airplaneId);
     }
 
     @GetMapping("/flights/{companyName}/{flightStatus}")
-    public List<Flight> findAllAirCompanyFlightsByStatus(@PathVariable String companyName, @PathVariable String flightStatus) { // It is work
+    public List<Flight> findAllAirCompanyFlightsByStatus(@PathVariable String companyName, @PathVariable String flightStatus) {
         return managementSystemService.findAllAirCompanyFlightsByStatus(companyName, flightStatus);
     }
 
@@ -62,27 +62,17 @@ public class ManagementSystemRest {
     }
 
     @PostMapping("/airplanes/{airCompanyId}")
-    public void saveAirplane(@PathVariable(required = false) int airCompanyId, @RequestBody Airplane airplane) { // It is work
+    public void saveAirplane(@PathVariable(required = false) int airCompanyId, @RequestBody Airplane airplane) {
         managementSystemService.saveAirplane(airCompanyId, airplane);
     }
 
     @PostMapping("/flights")
-    public void saveFlight(@RequestBody Flight flight) { // It is work
+    public void saveFlight(@RequestBody Flight flight) {
         managementSystemService.saveFlight(flight);
     }
 
     @PutMapping("/flights/{flightId}/{flightStatus}")
-    public void changeFlightStatus(@PathVariable int flightId, @PathVariable String flightStatus) { // It is work
+    public void changeFlightStatus(@PathVariable int flightId, @PathVariable String flightStatus) {
         managementSystemService.changeFlightStatus(flightId, flightStatus);
     }
-
-
-
-
-
-//
-//    @DeleteMapping("/airplanes/{airCompanyId}/{airplaneId}")
-//    public void removeAirplane(@PathVariable int airCompanyId, @PathVariable int airplaneId) {
-//        managementSystemService.removeAirplane(airCompanyId, airplaneId);
-//    }
 }

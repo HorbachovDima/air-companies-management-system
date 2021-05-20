@@ -24,11 +24,4 @@ public class AirplaneDaoImpl implements AirplaneDao {
         Airplane dbAirplane = entityManager.merge(airplane);
         airplane.setId(dbAirplane.getId());
     }
-
-    @Override
-    public void remove(int id) {
-        Airplane airplane = entityManager.find(Airplane.class, id);
-        Airplane mergedAirplane = entityManager.merge(airplane);
-        entityManager.remove(mergedAirplane);
-    }
 }
